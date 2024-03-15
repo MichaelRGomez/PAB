@@ -9,6 +9,10 @@ export default class Tags{
     };
 
     //READ
+    static async getById(id: string): Promise<Tag | null>{
+        return await TagModel.findById(id);
+    }
+
     static async getAll(): Promise<Tag[]>{
         const tagRing: Tag[] = await TagModel.find();
         return tagRing;

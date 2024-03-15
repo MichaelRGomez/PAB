@@ -14,7 +14,10 @@ export type Art = {
 }
 
 //New version
-export type NewArt = Omit<Art, 'id'>;
+export type NewArt = Omit<Art, 'id' | 'createdAt'>;
+
+//Edit version
+export type EditArt = Omit<Art, 'id' | 'createdAt'>;
 
 //Art Schema
 const ArtSchema: Schema = new Schema({

@@ -1,4 +1,4 @@
-import ArtModel, { Art, NewArt } from "../schemas/art";
+import ArtModel, { Art, EditArt, NewArt } from "../schemas/art";
 
 export default class Arts{
     //CREATE
@@ -26,6 +26,11 @@ export default class Arts{
     }
 
     //UPDATE
+    static async update(id: string, data: EditArt): Promise <Art | null>{
+        return await ArtModel.findByIdAndUpdate(id, data);
+    }
+
+    //the following function should only be used by the casDelete function in ./models/Tags.ts
     static async removeTag(tagToBeRemoved: string, art: Art): Promise<Art | null>{
         const { id } = art;
         const oldTags: string[] = art.tags!;

@@ -2,6 +2,8 @@
 import { Router } from 'express';
 
 const router: Router = Router();
-//TODO: add route handlers
+
+//endpoints
+router.get('/')
 
 export default router;
