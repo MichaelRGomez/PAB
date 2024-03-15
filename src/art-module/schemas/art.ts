@@ -10,6 +10,7 @@ export type Art = {
     file: string | null; 
     caption?: string | null;
     tags?: string[];
+    createdAt: Date;
 }
 
 //New version
@@ -21,7 +22,7 @@ const ArtSchema: Schema = new Schema({
     file: { type: ObjectId, required: true, ref: 'Files'},
     caption: {type: String, required: false},
     tags: { type: [String], required: false},
-},{collection: 'Art', toJSON: {virtuals: true}, toObject: {virtuals: true}});
+},{timestamps: true, collection: 'Art', toJSON: {virtuals: true}, toObject: {virtuals: true}});
 
 //Virtuals
 ArtSchema.virtual('public_art',{
